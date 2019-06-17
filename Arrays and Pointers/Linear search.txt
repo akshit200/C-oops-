@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int a[10];
+
+    int n;
+    cin>>n;
+
+    //Input elements of array
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+
+    //input key
+    int key;
+    cin>>key;
+
+
+    //Linear search - Search through entire array
+    int i;
+    for(i=0;i<n;i++){
+        
+        //Try to match key with every element
+        if(key==a[i]){
+            cout<<"Key found at index "<<i<<endl;
+            break;
+        }
+    }
+
+    ///Two ways - Either loop complete or through break statement
+
+    if(i==n){
+        cout<<"Key not found"<<endl;
+    }
+    
+    return 0;
+
+}

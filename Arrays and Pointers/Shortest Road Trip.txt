@@ -1,0 +1,75 @@
+#include <iostream>
+using namespace std;
+int main() {
+    char ch;
+    ch =cin.get();
+    int x=0,y=0;
+
+    while(ch!='\n'){
+
+        switch(ch){
+            case'N': y++;break;
+            case'S': y--;break;
+            case'E': x++;break;
+            case'W': x--;break;
+        }
+
+        ch= cin.get();
+    }
+
+    cout<<"Net Displacement is "<<x<<" and "<<y<<endl;
+
+        if(x>=0 && y>=0){
+            //For East part
+            for(int i=0;i<x; i++){
+                cout<<"E";
+            }
+
+            //For North part
+            for(int j=0;j<y;j++){
+                cout<<"N";
+            }
+            }
+
+        else if(x<0 && y>=0){
+
+            //For North part
+        for(int j=0;j<y;j++){
+            cout<<"N";
+        }
+            //For West part
+            for(int i=x;i!=0;i++){
+                cout<<"W";
+            }
+
+         
+        }
+
+        else if(x>=0 && y<0){
+             //For East part
+            for(int i=0;i<x; i++){
+                cout<<"E";
+        }
+            //For South part
+            for(int j=y;j!=0;j++){
+                cout<<"S";
+            }
+
+        }
+
+        else if(x<0 && y<0){
+          
+            //For South part
+            for(int j=y;j!=0;j++){
+                cout<<"S";
+            }
+            //For West part
+            for(int i=x;i!=0;i++){
+                cout<<"W";
+            }
+          
+        }
+        return 0;
+    }
+    
+
