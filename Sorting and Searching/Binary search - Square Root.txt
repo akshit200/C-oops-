@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+float squareRoot(int no, int p){
+
+    int s=0, e=no, mid;
+    float ans;
+
+    //Integer part
+    while(s<=e){
+
+        mid = (s+e)/2;
+
+        if(mid*mid == no){
+            ans = mid;
+            break;
+        }
+        else if(mid*mid <  no){
+            ans = mid;
+            s= mid +1;
+        }else{
+            e= mid -1;
+        }
+    }
+
+    //Fractional part
+    float inc =0.1;
+
+    for(int i=0; i<p;i++){
+
+        while(ans*ans <= no){
+            ans += inc;
+        }
+
+        //ans*ans > no
+        ans = ans-inc;
+        inc = inc/10;
+
+    }
+    return ans;
+
+}
+int main() {
+    cout<<"Square root of 10 is "<< squareRoot(10,3)<<endl;   
+    cout<<"Square root of 49 is "<< squareRoot(49,1)<<endl;
+    cout<<"Square root of 5 is "<< squareRoot(5,3)<<endl;
+
+return 0;
+}
