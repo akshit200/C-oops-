@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+int pivotIn_rotated_sorted_array(int a[], int n, int key){
+
+    int s=0,e=n-1,ans=-1;
+    while(s<=e){
+
+            int mid = (s+e)/2;
+
+            if(key == a[mid]){
+                ans=mid;
+            }
+
+            if(mid>s && a[mid] < a[mid-1]){
+                ans=mid-1;
+            }
+
+            if(mid<e && a[mid] > a[mid+1]){
+                ans = mid;
+            }
+
+            //if right part is sorted then find pivot in left part
+            if(a[e]>= a[mid]){
+                    e= mid-1;
+            }
+
+            //if left part is sorted then find pivot in right part
+            if(a[s]<= a[mid]){
+                    s= mid+1;
+                }
+
+        }
+    
+    return ans;
+}
+int main() {
+    int n;
+    cin>>n;
+
+    int a[n];
+
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+
+    int key;
+    cin>>key;
+
+    int index = pivotIn_rotated_sorted_array(a,n,key);
+    cout<<index<<endl;
+return 0;
+}
